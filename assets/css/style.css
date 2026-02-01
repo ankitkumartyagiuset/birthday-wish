@@ -1,0 +1,269 @@
+/* =========================================
+   BASIC SETUP
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden; /* Scroll band */
+  color: white;
+}
+
+/* =========================================
+   START OVERLAY
+   ========================================= */
+#start-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.start-btn {
+  padding: 20px 50px;
+  font-size: 1.8rem;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff6b6b;
+  transition: transform 0.3s;
+  animation: heartbeat 1.5s infinite;
+}
+.start-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   PAGE STRUCTURE
+   ========================================= */
+.page-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Default hidden */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.page-section.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* =========================================
+   CONTENT STYLING
+   ========================================= */
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 4.5rem;
+  color: #ffd700;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.signature {
+  font-size: 1.2rem;
+  margin-bottom: 30px; /* Thoda space button ke liye */
+  font-style: italic;
+}
+
+/* --- BUTTON LOGIC --- */
+.btn {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  background: white;
+  color: #764ba2;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition:
+    opacity 0.5s ease,
+    transform 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  background: #ffd700;
+}
+
+/* Ye class button ko chupane ke liye hai */
+.hidden-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Page 2: Message Box --- */
+.msg-box {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#typing-content {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* --- Page 3: Gallery --- */
+.gallery-frame {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  padding: 15px 15px 40px 20px; /* Polaroid look */
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  display: none; /* JS se show hoga */
+  animation: zoomIn 0.8s ease;
+}
+
+.gallery-frame.show {
+  display: block;
+}
+
+.gallery-frame img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: #eee;
+}
+
+.caption {
+  margin-top: 15px;
+  color: #333;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#final-message {
+  display: none;
+  text-align: center;
+  animation: popUp 0.5s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- Background Animations --- */
+.bg-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floater {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatUp 10s linear infinite;
+  bottom: -100px;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .gallery-frame img {
+    height: 220px;
+  }
+  .caption {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Bhaiya!</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- 1. AUDIO FILE -->
+    <audio id="bg-music" loop>
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=happy-birthday-123525.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- 2. START OVERLAY (Music Start Button) -->
+    <div id="start-overlay">
+      <h1 class="overlay-title">🎉 Happy Birthday Bhaiya!</h1>
+      <button class="start-btn" onclick="startApp()">Open Gift 🎁</button>
+    </div>
+
+    <!-- 3. BACKGROUND ANIMATIONS -->
+    <div class="bg-anim" id="anim-box"></div>
+
+    <!-- =========================================
+         PAGE 1: INTRO
+         ========================================= -->
+    <section id="page-1" class="page-section">
+      <h1>Happy Birthday<br />My Dear Brother 🥳</h1>
+      <h2>With your younger brother</h2>
+      <p class="signature">— Ankit Kumar Tyagi</p>
+
+      <!-- Page 1 Button: Visible by default -->
+      <button class="btn" onclick="goToPage('page-2')">NEXT ➝</button>
+    </section>
+
+    <!-- =========================================
+         PAGE 2: EMOTIONAL MESSAGE
+         ========================================= -->
+    <section id="page-2" class="page-section">
+      <div class="msg-box">
+        <div id="typing-content"></div>
+      </div>
+
+      <!-- Page 2 Button: Hidden by default (using hidden-btn class) -->
+      <button
+        id="btn-page-2"
+        class="btn hidden-btn"
+        onclick="goToPage('page-3')"
+      >
+        Aage BHADHIYE ➝
+      </button>
+    </section>
+
+    <!-- =========================================
+         PAGE 3: GALLERY & FINAL WISH
+         ========================================= -->
+    <section id="page-3" class="page-section">
+      <!-- Photo 1 -->
+      <div class="gallery-frame" id="photo-1">
+        <img src="assets/pics/best.jpeg" alt="Photo 1" />
+        <div class="caption">Bohot masti ki thi is din! 😎</div>
+      </div>
+
+      <!-- Photo 2 -->
+      <div class="gallery-frame" id="photo-2">
+        <img src="assets/pics/GFwali.jpeg" alt="Photo 2" />
+        <div class="caption">dhum chak chak dhum 🦸‍♂️</div>
+      </div>
+
+      <!-- Photo 3 -->
+      <div class="gallery-frame" id="photo-3">
+        <img src="assets/pics/rockstar1.jpeg" alt="Photo 3" />
+        <div class="caption">ye photo to gajab h bhaiya! 🏆</div>
+      </div>
+
+      <!-- Final Message -->
+      <div id="final-message">
+        <h1>Happy Birthday Bhaiya ❤️</h1>
+        <h2>GOD BLESS YOU Bhaiya !</h2>
+      </div>
+
+      <!-- Page 3 Button: Visible by default -->
+      <button id="btn-gallery" class="btn" onclick="nextGalleryItem()">
+        Next Photo ➝
+      </button>
+    </section>
+
+    <!-- JS Link -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
